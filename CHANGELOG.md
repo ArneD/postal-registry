@@ -1,3 +1,10 @@
+# [6.4.0](https://github.com/informatievlaanderen/postal-registry/compare/v6.3.1...v6.4.0) (2025-11-20)
+
+
+### Features
+
+* **oslo:** add postinfo detail links GAWR-7137 ([b96a401](https://github.com/informatievlaanderen/postal-registry/commit/b96a401e4388cb8d45bbc26f21fb93b1544e2176))
+
 ## [6.3.1](https://github.com/informatievlaanderen/postal-registry/compare/v6.3.0...v6.3.1) (2025-09-16)
 
 
