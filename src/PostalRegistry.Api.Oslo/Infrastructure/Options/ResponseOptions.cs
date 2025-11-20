@@ -10,5 +10,7 @@ namespace PostalRegistry.Api.Oslo.Infrastructure.Options
 
         public string GemeenteNaamruimte { get; set; }
         public string GemeenteDetailUrl { get; set; }
+
+        public string PostInfoDetailAddressesLink { get; set; }
     }
 }

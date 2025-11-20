@@ -67,6 +67,13 @@ namespace PostalRegistry.Api.Oslo.PostalInformation.Responses
         [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string? Nuts3Code { get; set; }
 
+        /// <summary>
+        /// De hyperlinks die gerelateerd zijn aan de postinfo.
+        /// </summary>
+        [DataMember(Name = "_links", Order = 99)]
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public PostalInformationOsloResponseLinks? Links { get; set; }
+
         public PostalInformationOsloResponse(
             string naamruimte,
             string contextUrlDetail,
@@ -74,7 +81,9 @@ namespace PostalRegistry.Api.Oslo.PostalInformation.Responses
             PostinfoDetailGemeente? gemeente,
             DateTimeOffset version,
             PostInfoStatus postInfoStatus,
-            string? nuts3Code)
+            string? nuts3Code,
+            string selfDetailUrl,
+            string addressesLinkUrl)
         {
             Context = contextUrlDetail;
             Identificator = new PostinfoIdentificator(naamruimte, postcode, version);
@@ -82,6 +91,37 @@ namespace PostalRegistry.Api.Oslo.PostalInformation.Responses
             PostInfoStatus = postInfoStatus;
             Postnamen = new List<Postnaam>();
             Nuts3Code = nuts3Code;
+
+            Links = new PostalInformationOsloResponseLinks(
+                self: new Link
+                {
+                    Href = new Uri(string.Format(selfDetailUrl, postcode))
+                },
+                adressen: new Link
+                {
+                    Href = new Uri(string.Format(addressesLinkUrl, postcode))
+                }
+            );
+        }
+    }
+
+    [DataContract(Name = "_links", Namespace = "")]
+    public class PostalInformationOsloResponseLinks
+    {
+        [DataMember(Name = "self")]
+        [JsonProperty(Required = Required.DisallowNull)]
+        public Link Self { get; set; }
+
+        [DataMember(Name = "adressen", EmitDefaultValue = false)]
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public Link? Adressen { get; set; }
+
+        public PostalInformationOsloResponseLinks(
+            Link self,
+            Link? adressen = null)
+        {
+            Self = self;
+            Adressen = adressen;
         }
     }
 
@@ -107,7 +147,9 @@ namespace PostalRegistry.Api.Oslo.PostalInformation.Responses
                 gemeente,
                 DateTimeOffset.Now.ToExampleOffset(),
                 PostInfoStatus.Gerealiseerd,
-                "BE251")
+                "BE251",
+                _responseOptions.DetailUrl,
+                _responseOptions.PostInfoDetailAddressesLink)
             {
                 Postnamen = new List<Postnaam>
                 {

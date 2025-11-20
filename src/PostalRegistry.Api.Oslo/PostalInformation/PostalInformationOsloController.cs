@@ -102,7 +102,9 @@ namespace PostalRegistry.Api.Oslo.PostalInformation
                     postalInformation.IsRetired
                         ? PostInfoStatus.Gehistoreerd
                         : PostInfoStatus.Gerealiseerd,
-                    nuts3Record?.Nuts3Code)
+                    nuts3Record?.Nuts3Code,
+                    responseOptions.Value.DetailUrl,
+                    responseOptions.Value.PostInfoDetailAddressesLink)
                 {
                     Postnamen = postalInformation
                         .PostalNames?
