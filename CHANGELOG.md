@@ -1,3 +1,10 @@
+# [6.5.0](https://github.com/informatievlaanderen/postal-registry/compare/v6.4.0...v6.5.0) (2025-12-01)
+
+
+### Features
+
+* remove ldes GAWR-7170 ([9e65931](https://github.com/informatievlaanderen/postal-registry/commit/9e659312619891956ac3b5dd38d926e2989f9d6e))
+
 # [6.4.0](https://github.com/informatievlaanderen/postal-registry/compare/v6.3.1...v6.4.0) (2025-11-20)
 
 
