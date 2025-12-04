@@ -105,6 +105,9 @@ namespace PostalRegistry.Api.Oslo.PostalInformation.Responses
         }
     }
 
+    /// <summary>
+    /// De hyperlinks die gerelateerd zijn aan de postinfo.
+    /// </summary>
     [DataContract(Name = "_links", Namespace = "")]
     public class PostalInformationOsloResponseLinks
     {
