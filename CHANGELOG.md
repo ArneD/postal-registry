@@ -1,3 +1,10 @@
+## [6.5.1](https://github.com/informatievlaanderen/postal-registry/compare/v6.5.0...v6.5.1) (2025-12-04)
+
+
+### Bug Fixes
+
+* **oslo:** update docs links ([2e76ab9](https://github.com/informatievlaanderen/postal-registry/commit/2e76ab9cfc2c7722eefc3509995ce3cbbd7810fc))
+
 # [6.5.0](https://github.com/informatievlaanderen/postal-registry/compare/v6.4.0...v6.5.0) (2025-12-01)
 
 
