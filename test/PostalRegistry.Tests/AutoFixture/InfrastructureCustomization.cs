@@ -7,6 +7,7 @@
         public void Customize(IFixture fixture)
         {
             fixture.Customize(new NodaTimeCustomization());
+            fixture.Customize(new RandomBooleanSequenceCustomization());
             fixture.Customize(new SetProvenanceImplementationsCallSetProvenance());
         }
     }
